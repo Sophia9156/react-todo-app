@@ -1,14 +1,15 @@
 import Item from './Item';
+import { useSelector } from 'react-redux';
 
-export default function List({data, onDelete, onCheck}) {
+export default function List() {
+  const todos = useSelector(state => state.todos);
+
   return(
     <section className="list">
       <ul>
-        {data.map((todo, key) => <Item 
+        {todos.map((todo, key) => <Item 
         key={key} 
         todo={todo} 
-        onDelete={onDelete}
-        onCheck={onCheck}
         />)}
       </ul>
     </section>

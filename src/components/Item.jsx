@@ -1,29 +1,28 @@
-import { useState} from 'react';
+import { useDispatch } from "react-redux";
+import { deleteTodo, completeTodo } from '../redux/actions';
 
-export default function Item({todo, onDelete, onCheck}) {
-  let [check, setCheck] = useState(false);
-  function deleteTodo() {
-    onDelete(todo)
+export default function Item({todo}) {
+  const dispatch = useDispatch();
+  function onDelete() {
+    dispatch(deleteTodo(todo))
   }
   function clickCheck() {
-    check = !check;
-    setCheck(check);
-    onCheck(todo)
+    dispatch(completeTodo(todo))
   }
   return(
     <li style={todo.display ? {display: 'flex'} : {display: 'none'}}>
       <span className="material-icons-outlined">
         label_important
       </span>
-      <p className="title" style={!check ? null : {color: '#aaa', textDecoration: 'line-through'}}>{todo.title}</p>
+      <p className="title" style={todo.status === 'Done' ? {color: '#aaa', textDecoration: 'line-through'} : null}>{todo.title}</p>
       <p className="status">{todo.status}</p>
       <input type="checkbox" />
       <label onClick={clickCheck}>
-        <span className="material-icons-outlined" style={!check ? null : {color: 'salmon'}}>
+        <span className="material-icons-outlined" style={todo.status === 'Done' ? {color: 'salmon'} : null}>
           task_alt
         </span>
       </label>
-      <span onClick={deleteTodo} className="material-icons-outlined delete">
+      <span onClick={onDelete} className="material-icons-outlined delete">
         delete
       </span>
     </li>

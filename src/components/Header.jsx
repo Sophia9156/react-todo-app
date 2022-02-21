@@ -1,6 +1,6 @@
 import Add from './Add';
 
-export default function Header({data, onAdd}) {
+export default function Header() {
   return(
     <header>
       <h1>
@@ -9,7 +9,7 @@ export default function Header({data, onAdd}) {
         </span>
         To do List
       </h1>
-      <Add data={data} onAdd={onAdd} />
+      <Add />
     </header>
   )
 }

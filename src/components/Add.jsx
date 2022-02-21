@@ -1,12 +1,15 @@
 import { useRef } from 'react';
+import { useDispatch } from 'react-redux';
+import { addTodo } from '../redux/actions';
 
-export default function Add({data, onAdd}) {
+export default function Add() {
+  const dispatch = useDispatch();
   const inputRef = useRef();
   function onSubmit(e) {
     e.preventDefault();
-    const name = inputRef.current.value;
-    name && onAdd(name);
-    inputRef.current.value = '';
+    let name = inputRef.current.value;
+    name && dispatch(addTodo(name));
+    name = '';
   }
 
   return(
