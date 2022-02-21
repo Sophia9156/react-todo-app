@@ -11,7 +11,7 @@ export default function Item({todo, onDelete, onCheck}) {
     onCheck(todo)
   }
   return(
-    <li>
+    <li style={todo.display ? {display: 'flex'} : {display: 'none'}}>
       <span className="material-icons-outlined">
         label_important
       </span>
