@@ -1,0 +1,138 @@
+// mixin
+@mixin button(
+  $fontSize: 1.5em, 
+  $bgColor: transparent, 
+  $fontColor: #fff,
+  $bdColor: #fff
+  ) {
+  padding: 15px 20px;
+  font-size: $fontSize;
+  margin: 0 20px;
+  background-color: $bgColor;
+  border-radius: 30px;
+  border: 2px solid;
+  border-color: $bdColor;
+  color: $fontColor;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+
+// common
+*{
+  box-sizing: border-box;
+  font-family: 'Nanum Gothic', sans-serif;
+}
+
+
+// font
+.material-icons-outlined{
+  font-family: 'Material Icons';
+}
+$title: 'Lobster', cursive;
+
+
+
+// header
+header{
+  width: 100%;
+  padding: 70px 0 50px;
+  background-color: salmon;
+  h1{
+    font-size: 3em;
+    font-family: $title;
+    text-align: center;
+    color: #fff;
+    span{
+      vertical-align: middle;
+      margin: 0 20px;
+      color:rgb(198, 233, 115);
+    }
+  }
+  .addTodo{
+    text-align: center;
+    margin: 40px auto 0;
+    input{
+      width: 40%;
+      padding: 15px 30px;
+      font-size: 1.5em;
+      background-color: transparent;
+      outline: none;
+      border: none;
+      border-bottom: 1px solid #fff;
+      color: #fff;
+    }
+    button{
+      @include button;
+    }
+  }
+}
+
+.filter{
+  width: 100%;
+  padding: 50px 0;
+  text-align: center;
+  background-color: #fff;
+  button{
+    @include button(
+    1.3em, 
+    white, 
+    tomato,
+    tomato
+    )
+  }
+}
+
+.list{
+  width: 50%;
+  margin: 0 auto;
+  ul{
+    width: 100%;
+    li{
+      width: 100%;
+      padding: 20px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #ddd;
+      span{
+        font-size: 2em;
+        color: tomato;
+      }
+      .title{
+        width: 65%;
+        font-size: 1.5em;
+      }
+      .status{
+        @include button(
+        1em, 
+        white, 
+        tomato,
+        tomato
+        )
+      }
+      label{
+        cursor: pointer;
+        span{
+          color: #aaa;
+          vertical-align: middle;
+        }
+      }
+      input{
+        display: none;
+      }
+      .delete{
+        color: #666;
+      }
+    }
+  }
+}
+
+
+// footer
+footer{
+  width: 100%;
+  padding: 100px 0;
+  text-align: center;
+  color: #999;
+}
