@@ -1,11 +1,12 @@
 import { useRef } from 'react';
 
-export default function Add({data, func}) {
+export default function Add({data, onAdd}) {
   const inputRef = useRef();
   function onSubmit(e) {
     e.preventDefault();
     const name = inputRef.current.value;
-    name && func(name);
+    name && onAdd(name);
+    inputRef.current.value = '';
   }
 
   return(
