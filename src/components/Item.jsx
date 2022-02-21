@@ -11,7 +11,7 @@ export default function Item({todo}) {
   }
   return(
     <li style={todo.display ? {display: 'flex'} : {display: 'none'}}>
-      <span className="material-icons-outlined">
+      <span className="material-icons-outlined" style={todo.status === 'Done' ? {color: '#aaa'} : null}>
         label_important
       </span>
       <p className="title" style={todo.status === 'Done' ? {color: '#aaa', textDecoration: 'line-through'} : null}>{todo.title}</p>

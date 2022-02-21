@@ -9,7 +9,7 @@ export default function Add() {
     e.preventDefault();
     let name = inputRef.current.value;
     name && dispatch(addTodo(name));
-    name = '';
+    inputRef.current.value = '';
   }
 
   return(
