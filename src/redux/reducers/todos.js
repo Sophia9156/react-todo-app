@@ -1,13 +1,14 @@
-import {ADD_TODO, DELETE_TODO, COMPLETE_TODO, SELECT_FILTER} from '../actions';
+import {READ_TODO, ADD_TODO, DELETE_TODO, COMPLETE_TODO, SELECT_FILTER} from '../actions';
 
-const initial = [
-  {title: '책 읽기', status: 'Unfulfilled', display: true},
-  {title: '코딩하기', status: 'Unfulfilled', display: true},
-  {title: '청소하기', status: 'Unfulfilled', display: true},
-];
+const initial = [];
 
 export default function todos(previousState = initial, action) {
   switch(action.type){
+    case READ_TODO: 
+      if(action.data !== undefined) {
+        return Object.values(action.data);
+      }
+      return [...previousState];
     case ADD_TODO: 
       return [{title: action.text, status: 'Unfulfilled', display: true}, ...previousState];
     case DELETE_TODO:

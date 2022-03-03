@@ -1,20 +1,20 @@
 import { useEffect } from "react";
-import { useNavigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom";
 
 export default function Login({authService}) {
   const navigate = useNavigate();
-  const goToMain = (userId) =>{
-    navigate({
-      pathname: '/todoapp',
-      state: {id: userId}
-    });
+  const goToMain = (user) => {
+    navigate(
+      '/todoapp',
+      {state: {id: user.uid, userName: user.displayName}}
+    );
   }
 
   const onLogin = (e) => {
     authService
     .login(e.currentTarget.textContent)
     .then(user => {
-      goToMain(user.uid);
+      goToMain(user);
     })
   }
 

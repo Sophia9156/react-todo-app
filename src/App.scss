@@ -50,6 +50,13 @@ header{
       color:rgb(198, 233, 115);
     }
   }
+  .greeting{
+    font-size: 1.5em;
+    font-family: $title;
+    text-align: center;
+    color: #fff;
+    padding: 2em 0;
+  }
   .logout{
     position: absolute;
     right: 2em; top: 2em;
@@ -274,6 +281,10 @@ footer{
         margin: 0 20px 0 0;
       }
     }
+    .greeting{
+      font-size: 1.2em;
+      padding: 1.5em 0;
+    }
     .logout{
       padding: 0.7em 1.2em;
       font-size: 0.7em;
@@ -363,6 +374,10 @@ footer{
       span{
         margin: 0 20px 0 0;
       }
+    }
+    .greeting{
+      font-size: 1.5em;
+      padding: 1.5em 0;
     }
     .logout{
       padding: 0.7em 1.2em;

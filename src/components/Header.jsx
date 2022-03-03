@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import Add from './Add';
 
-export default function Header({authService}) {
+export default function Header({authService, userId, userName, database}) {
   const navigate = useNavigate();
   const onLogout = () => {
     authService.logout();
@@ -16,8 +16,9 @@ export default function Header({authService}) {
         </span>
         To do List
       </h1>
+      <p className='greeting'>Welcome! {userName}</p>
       <button className='logout' onClick={onLogout}>Logout</button>
-      <Add />
+      <Add database={database} userId={userId} />
     </header>
   )
 }
