@@ -1,15 +1,16 @@
 import './App.scss';
-import Header from './components/Header';
-import Footer from './components/Footer';
-import Main from './components/Main';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import TodoApp from './routes/TodoApp';
+import Login from './routes/Login';
 
-function App() {
+function App({authService}) {
   return (
-    <>
-      <Header />
-      <Main />
-      <Footer />
-    </>
+    <Router>
+      <Routes>
+        <Route exact path='/' element={<Login authService={authService} />} />
+        <Route path='/todoapp' element={<TodoApp authService={authService} />} />
+      </Routes>
+    </Router>
   );
 }
 

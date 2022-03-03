@@ -38,6 +38,7 @@ header{
   width: 100%;
   padding: 70px 0 50px;
   background-color: salmon;
+  position: relative;
   h1{
     font-size: 3em;
     font-family: $title;
@@ -48,6 +49,18 @@ header{
       margin: 0 20px;
       color:rgb(198, 233, 115);
     }
+  }
+  .logout{
+    position: absolute;
+    right: 2em; top: 2em;
+    padding: 0.8em 1.5em;
+    font-size: 0.8em;
+    color: #fff;
+    font-weight: 700;
+    background-color: transparent;
+    border: 2px solid #fff;
+    border-radius: 1em;
+    cursor: pointer;
   }
   .addTodo{
     text-align: center;
@@ -97,23 +110,23 @@ header{
       border-bottom: 1px solid #ddd;
       span{
         font-size: 2em;
-        color: tomato;
       }
       .title{
-        width: 65%;
+        width: 60%;
         font-size: 1.5em;
       }
       .status{
-        @include button(
-        1em, 
-        white, 
-        tomato,
-        tomato
-        );
+        padding: 10px;
+        font-size: 1em;
+        color: #fff;
         font-family: 'Nanum Gothic', sans-serif;
+        font-weight: 700;
+        position: relative;
+        background-color: tomato;
       }
       label{
         cursor: pointer;
+        margin: 0 10px;
         span{
           color: #aaa;
           vertical-align: middle;
@@ -137,6 +150,45 @@ footer{
   padding: 100px 0;
   text-align: center;
   color: #999;
+}
+
+
+// login
+.login{
+  width: 100%; height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: salmon;
+  h2{
+    font-size: 3em;
+    font-family: $title;
+    text-align: center;
+    color: #fff;
+    margin-bottom: 1.5em;
+  }
+  ul{
+    li{
+      margin-bottom: 1em;
+      button{
+        padding: 1em 5em;
+        border: 4px solid tomato;
+        border-radius: 2em;
+        background-color: #fff;
+        font-size: 1.3em;
+        font-family: 'Nanum Gothic', sans-serif;
+        color: tomato;
+        font-weight: 700;
+        cursor: pointer;
+        transition: .4s;
+        &:hover{
+          color: salmon;
+          border: 4px solid #fff;
+        }
+      }
+    }
+  }
 }
 
 
@@ -184,12 +236,7 @@ footer{
           font-size: 1.3em;
         }
         .status{
-          @include button(
-          0.8em, 
-          white, 
-          tomato,
-          tomato
-          );
+          font-size: 0.8em;
         }
       }
     }
@@ -202,6 +249,23 @@ footer{
   }
 } 
 
+
+// login
+.login{
+  h2{
+    font-size: 4em;
+  }
+  ul{
+    li{
+      margin-bottom: 1.5em;
+      button{
+        font-size: 1.7em;
+      }
+    }
+  }
+}
+
+
 /* 모바일 가로, 테블릿 세로 (해상도 480px ~ 767px)*/ 
 @media all and (min-width:480px) and (max-width:767px) {
   header{
@@ -209,6 +273,10 @@ footer{
       span{
         margin: 0 20px 0 0;
       }
+    }
+    .logout{
+      padding: 0.7em 1.2em;
+      font-size: 0.7em;
     }
     .addTodo{
       input{
@@ -257,16 +325,7 @@ footer{
           font-size: 1.2em;
         }
         .status{
-          padding: 10px 15px;
           font-size: 0.7em;
-          margin: 0 10px;
-          background-color: white;
-          border-radius: 20px;
-          border: 2px solid;
-          border-color: tomato;
-          color: tomato;
-          cursor: pointer;
-          font-weight: 700;
         }
       }
     }
@@ -279,6 +338,23 @@ footer{
   }
 } 
 
+
+// login
+.login{
+  h2{
+    font-size: 3em;
+  }
+  ul{
+    li{
+      margin-bottom: 1.5em;
+      button{
+        font-size: 1.3em;
+      }
+    }
+  }
+}
+
+
 /* 모바일 가로, 테블릿 세로 (해상도 ~ 479px)*/ 
 @media all and (max-width:479px) {
   header{
@@ -287,6 +363,10 @@ footer{
       span{
         margin: 0 20px 0 0;
       }
+    }
+    .logout{
+      padding: 0.7em 1.2em;
+      font-size: 0.7em;
     }
     .addTodo{
       input{
@@ -337,14 +417,6 @@ footer{
         .status{
           padding: 7px 10px;
           font-size: 0.5em;
-          margin: 0 10px;
-          background-color: white;
-          border-radius: 20px;
-          border: 2px solid;
-          border-color: tomato;
-          color: tomato;
-          cursor: pointer;
-          font-weight: 700;
         }
       }
     }
@@ -354,5 +426,21 @@ footer{
   // footer
   footer{
     font-size: 0.8em;
+  }
+}
+
+
+// login
+.login{
+  h2{
+    font-size: 3em;
+  }
+  ul{
+    li{
+      margin-bottom: 1.5em;
+      button{
+        font-size: 1em;
+      }
+    }
   }
 }

@@ -11,11 +11,11 @@ export default function Item({todo}) {
   }
   return(
     <li style={todo.display ? {display: 'flex'} : {display: 'none'}}>
-      <span className="material-icons-outlined" style={todo.status === 'Done' ? {color: '#aaa'} : null}>
+      <span className="material-icons-outlined" style={todo.status === 'Done' ? {color: '#aaa'} : {color: 'tomato'}}>
         label_important
       </span>
       <p className="title" style={todo.status === 'Done' ? {color: '#aaa', textDecoration: 'line-through'} : null}>{todo.title}</p>
-      <p className="status">{todo.status}</p>
+      <p className="status" style={todo.status === 'Done' ? {backgroundColor: '#888'} : null}>{todo.status}</p>
       <input type="checkbox" />
       <label onClick={clickCheck}>
         <span className="material-icons-outlined" style={todo.status === 'Done' ? {color: 'salmon'} : null}>
