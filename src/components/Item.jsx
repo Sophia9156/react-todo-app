@@ -10,7 +10,7 @@ export default function Item({todo, database, userId}) {
   }
   function clickCheck() {
     dispatch(completeTodo(todo));
-    database.editData(userId, todo.title, todo.status, todo.display);    
+    database.editData(userId, todo.title, todo.status, todo.display);
   }
 
   return(
