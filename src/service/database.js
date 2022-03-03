@@ -1,5 +1,5 @@
 import { database } from "./firebase";
-import { ref, set, child, get } from "firebase/database";
+import { ref, set, child, get, remove } from "firebase/database";
 
 class Database {
   writeData(userId, title) {
@@ -26,6 +26,9 @@ class Database {
       }
     });
     return result;
+  }
+  removeData(userId, title) {
+    remove(ref(database, `${userId}/todos/${title}`));
   }
 }
 
